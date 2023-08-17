@@ -31,14 +31,13 @@ function App() {
       <div>
         <h2>Elige un color</h2>
       </div>
-      <form onSubmit={handleFormSubmit} className="form">
+      <form onSubmit={handleFormSubmit}>
         <div className="input-container">
           <input
             type="text"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
             placeholder="Ingresá tu nombre"
-            className="input"
           />
         </div>
         <div className="input-container">
@@ -47,10 +46,9 @@ function App() {
             value={input2}
             onChange={(e) => setInput2(e.target.value)}
             placeholder="Ingresá tu color favorito (formato HEX)"
-            className="input"
           />
         </div>
-        <button type="submit" className="button">Enviar</button>
+        <button type="submit">Enviar</button>
         {errorMessage && <p className="error">{errorMessage}</p>}
       </form>
       {showCard && <Card input1={submittedInput1} input2={submittedInput2} />}
