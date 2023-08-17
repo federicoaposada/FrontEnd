@@ -7,6 +7,8 @@ function App() {
   const [input2, setInput2] = useState("");
   const [showCard, setShowCard] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [submittedInput1, setSubmittedInput1] = useState("");
+  const [submittedInput2, setSubmittedInput2] = useState("");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -17,12 +19,18 @@ function App() {
     } else {
       setShowCard(true);
       setErrorMessage("");
+      setSubmittedInput1(input1);
+      setSubmittedInput2(input2);
+      setInput1("");
+      setInput2("");
     }
   };
 
   return (
     <div className="App">
-      <h2>Elige un color</h2>
+      <div>
+        <h2>Elige un color</h2>
+      </div>
       <form onSubmit={handleFormSubmit} className="form">
         <div className="input-container">
           <input
@@ -45,7 +53,7 @@ function App() {
         <button type="submit" className="button">Enviar</button>
         {errorMessage && <p className="error">{errorMessage}</p>}
       </form>
-      {showCard && <Card input1={input1} input2={input2} />}
+      {showCard && <Card input1={submittedInput1} input2={submittedInput2} />}
     </div>
   );
 }
